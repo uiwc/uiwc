@@ -13,8 +13,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: npm install
-      - name: Publish Storybook
-        run: npm run publish-storybook
       - name: Prebuild project
         run: npm run prebuild
       - name: Prepublish project
