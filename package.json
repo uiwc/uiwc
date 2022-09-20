@@ -1,0 +1,144 @@
+{
+  "name": "uiwc",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://github.com/uiwc/uiwc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwc/uiwc"
+  },
+  "keywords": [],
+  "contributors": [
+    {
+      "name": "Eduardo Lorenzo",
+      "email": "ejlorenzo19@gmail.com",
+      "url": "https://github.com/osszoi"
+    },
+    {
+      "name": "Christiam Mena",
+      "email": "christiam.mena@gmail.com",
+      "url": "https://github.com/xtiam57"
+    }
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "dateformat": "^4.5.1",
+    "framer-motion": "^4.1.17",
+    "jwt-decode": "^3.1.2",
+    "npm-check-updates": "^11.7.1",
+    "polished": "^4.1.2",
+    "query-string": "^7.0.0",
+    "react-accessible-accordion": "^3.3.4",
+    "react-albus": "^2.0.0",
+    "react-collapsed": "^3.0.2",
+    "react-datepicker": "^4.3.0",
+    "react-grid-system": "^7.1.2",
+    "react-hook-form": "^7.4.2",
+    "react-loading-skeleton": "^2.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-select": "^5.2.1",
+    "react-slick": "^0.28.1",
+    "react-stickynode": "^3.1.0",
+    "react-table": "^7.7.0",
+    "react-tabs": "^3.2.2",
+    "react-toastify": "^7.0.4",
+    "slick-carousel": "^1.8.1",
+    "sticky-sidebar": "^3.3.1",
+    "styled-components": "^5.2.3"
+  },
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "tsc",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build-storybook": "build-storybook",
+    "publish-storybook": "npx chromatic --project-token=db832896713b",
+    "compile-icons": "npx @svgr/cli -d src/assets/icons src/assets/icons --typescript",
+    "compile-images": "npx @svgr/cli -d src/assets/images src/assets/images --typescript",
+    "copy-files": "copyfiles --up 1 src/assets/**/* lib/ && copyfiles --up 1 src/**/*.css lib/",
+    "prebuild": "rimraf ./lib && npm run copy-files",
+    "prepublish": "npm run build",
+    "release": "standard-version && git push --follow-tags && git checkout master && git pull && git merge dev && git push && git checkout dev",
+    "release:dry-run": "standard-version --dry-run",
+    "release:pre": "standard-version --prerelease",
+    "release:alpha": "standard-version --prerelease alpha",
+    "release:major": "standard-version --release-as major",
+    "release:minor": "standard-version --release-as minor"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/node-logger": "^6.2.8",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.8",
+    "@svgr/cli": "^5.5.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/dateformat": "^3.0.1",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-albus": "^2.0.5",
+    "@types/react-datepicker": "^4.3.1",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-modal": "^3.12.0",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-slick": "^0.23.4",
+    "@types/react-stickynode": "^3.0.2",
+    "@types/react-table": "^7.7.6",
+    "@types/react-tabs": "^2.3.2",
+    "@types/styled-components": "^5.1.9",
+    "autoprefixer": "^10.2.5",
+    "chromatic": "^5.8.0",
+    "copyfiles": "^2.4.1",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.1.1",
+    "storybook-addon-designs": "^6.0.0",
+    "storybook-addon-pseudo-states": "^1.0.0",
+    "storybook-addon-state": "^1.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  }
+}

@@ -1,0 +1,27 @@
+name: Publish
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: npm install
+      - name: Build Storybook
+        run: npm run build-storybook
+      - name: Publish Storybook
+        run: npm run publish-storybook
+      - name: Prebuild project
+        run: npm run prebuild
+      - name: Prepublish project
+        run: npm run prepublish
+      - name: Publish project to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
